@@ -1,0 +1,27 @@
+# Mi Primera Página Web con Django - Entrega Final
+
+### Alumno: Frossard
+**Curso:** Python - Nivel Inicial
+
+---
+
+## 🚀 Descripción del Proyecto
+Este proyecto es un **Blog MVT (Model-View-Template)** desarrollado en Django. Permite la gestión de artículos, autores y secciones, incluyendo un sistema de búsqueda funcional y una interfaz estética moderna utilizando Bootstrap.
+
+## 🛠️ Funcionalidades
+* **Gestión de Datos:** Formularios interactivos para cargar Autores, Artículos y Secciones.
+* **Buscador Dinámico:** Filtra artículos por título y muestra la información completa (Título, Sección, Contenido y Fecha).
+* **Diseño Responsivo:** Interfaz estilizada con Bootstrap 5 para una navegación fluida.
+* **Herencia de Templates:** Uso de un archivo `padre.html` para optimizar la estructura del sitio.
+
+## 📦 Modelos
+1.  **Autor:** Registra nombre, apellido y profesión.
+2.  **Artículo:** Título, contenido, fecha y categoría/sección.
+3.  **Sección:** Nombres de las categorías del blog.
+
+## 💻 Cómo probar el proyecto
+1. Clonar el repositorio.
+2. En la terminal, ejecutar las migraciones:
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate

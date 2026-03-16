@@ -1,0 +1,9 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+    <h3 class="mb-4">¿Qué artículo buscás?</h3>
+    <form action="/blog/buscar/" method="GET" class="input-group mb-3">
+        <input type="text" name="titulo" class="form-control" placeholder="Ej: Mi viaje..." aria-label="Buscar">
+        <button class="btn btn-primary" type="submit">Buscar ahora</button>
+    </form>
+{% endblock %}

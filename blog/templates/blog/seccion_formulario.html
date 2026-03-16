@@ -1,0 +1,16 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+    <h3 class="mb-4 text-info">Crear nueva Sección</h3>
+    
+    <div class="card shadow-sm p-4">
+        <form action="" method="POST"> {% csrf_token %}
+            
+            {{ mi_formulario.as_p }}
+            
+            <button type="submit" class="btn btn-info text-white w-100 mt-3 fw-bold">
+                📁 Crear Sección
+            </button>
+        </form>
+    </div>
+{% endblock %}

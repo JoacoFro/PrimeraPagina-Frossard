@@ -1,0 +1,21 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+    <h2>Resultados para: "{{ query }}"</h2>
+
+    {% if articulos %}
+        <ul>
+        {% for art in articulos %}
+            <li>
+                <strong>{{ art.titulo }}</strong> - Fecha: {{ art.fecha }} <br>
+                <p>{{ art.texto }}</p>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron artículos con ese título. ¡Intentá con otra palabra!</p>
+    {% endif %}
+
+    <hr>
+    <a href="/blog/buscar/">Hacer otra búsqueda</a>
+{% endblock %}

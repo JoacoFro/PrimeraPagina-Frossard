@@ -1,0 +1,14 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+    <h3 class="mb-4 text-primary">Cargar un nuevo Autor</h3>
+    <form action="" method="POST" class="form-control p-4 border-0"> 
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            {{ mi_formulario.as_p }}
+        </div>
+        
+        <button type="submit" class="btn btn-success w-100 fw-bold">Guardar Información</button>
+    </form>
+{% endblock %}

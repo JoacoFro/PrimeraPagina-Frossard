@@ -1,0 +1,27 @@
+# --- Base de datos ---
+# No subimos la nafta, solo el motor (el código)
+db.sqlite3
+*.sqlite3
+
+# --- Multimedia ---
+# No subimos las fotos de prueba de los autos/avatares
+media/
+
+# --- Python / Sistema ---
+# Archivos temporales que genera Python al correr
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+Thumbs.db
+
+# --- Entornos Virtuales ---
+# Si usas venv o env, esto no se sube porque pesa mucho
+venv/
+env/
+ENV/
+
+# --- IDEs ---
+# Configuraciones de VS Code o PyCharm
+.vscode/
+.idea/

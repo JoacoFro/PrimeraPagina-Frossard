@@ -1,0 +1,24 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="card p-4 shadow mx-auto" style="max-width: 400px; border-radius: 15px;">
+        <h2 class="text-center mb-4">Subir Foto de Perfil</h2>
+        
+        <form action="{% url 'blog:AgregarAvatar' %}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label class="form-label text-muted small">Selecciona una imagen (JPG, PNG)</label>
+                <input type="file" name="imagen" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn btn-info w-100 text-white fw-bold">Actualizar Avatar</button>
+        </form>
+        
+        <div class="text-center mt-3">
+            <a href="{% url 'blog:Inicio' %}" class="text-decoration-none small text-secondary">← Cancelar y volver</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

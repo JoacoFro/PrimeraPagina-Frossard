@@ -1,16 +1,28 @@
 {% extends "blog/padre.html" %}
 
 {% block contenido %}
-    <h3 class="mb-4 text-info">Crear nueva Sección</h3>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="text-info fw-bold">📁 Crear nueva Sección</h3>
+        <a href="{% url 'blog:Inicio' %}" class="btn btn-outline-secondary btn-sm">Volver al Inicio</a>
+    </div>
     
-    <div class="card shadow-sm p-4">
-        <form action="" method="POST"> {% csrf_token %}
+    <div class="card shadow p-4" style="border-radius: 15px; border-top: 5px solid #0dcaf0;">
+        <form action="" method="POST"> 
+            {% csrf_token %}
             
-            {{ mi_formulario.as_p }}
+            <div class="mb-3">
+                {{ mi_formulario.as_p }}
+            </div>
             
-            <button type="submit" class="btn btn-info text-white w-100 mt-3 fw-bold">
-                📁 Crear Sección
+            <button type="submit" class="btn btn-info text-white w-100 mt-3 fw-bold shadow-sm py-2">
+                ✅ Guardar nueva Categoría
             </button>
         </form>
     </div>
+    
+    <p class="text-center mt-3 text-muted small">
+        Las secciones ayudan a organizar tus guías de soporte y artículos de Python.
+    </p>
+</div>
 {% endblock %}

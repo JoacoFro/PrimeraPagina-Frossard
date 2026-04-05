@@ -1,14 +1,24 @@
 {% extends "blog/padre.html" %}
 
 {% block contenido %}
-    <h3 class="mb-4 text-primary">Cargar un nuevo Autor</h3>
-    <form action="" method="POST" class="form-control p-4 border-0"> 
-        {% csrf_token %}
-        
-        <div class="mb-3">
-            {{ mi_formulario.as_p }}
-        </div>
-        
-        <button type="submit" class="btn btn-success w-100 fw-bold">Guardar Información</button>
-    </form>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="text-success fw-bold">👤 Cargar un nuevo Autor</h3>
+        <a href="{% url 'blog:Inicio' %}" class="btn btn-outline-secondary btn-sm">Volver al Inicio</a>
+    </div>
+
+    <div class="card shadow p-4" style="border-radius: 15px; border-top: 5px solid #198754;">
+        <form action="" method="POST"> 
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                {{ mi_formulario.as_p }}
+            </div>
+            
+            <button type="submit" class="btn btn-success w-100 fw-bold shadow-sm py-2">
+                ✅ Guardar Información del Autor
+            </button>
+        </form>
+    </div>
+</div>
 {% endblock %}

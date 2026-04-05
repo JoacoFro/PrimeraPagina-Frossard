@@ -1,6 +1,74 @@
 {% extends "blog/padre.html" %}
+{% load static %} {% block contenido %}
+<div class="text-center mt-5">
+    <h1 class="display-3 fw-bold text-primary">LabelBox <span class="text-dark">- Soluciones Informáticas</span></h1>
+    <p class="lead text-muted">Bienvenido a mi espacio de tecnología, soporte técnico y desarrollo.</p>
+    
+    <div class="my-4">
+        <img src="{% static 'blog/img/banner-it.png' %}" 
+             alt="Servicios Informáticos LabelBox" 
+             class="img-fluid rounded-4 shadow-lg" 
+             style="max-height: 350px; width: 100%; object-fit: cover;">
+    </div>
 
-{% block contenido %}
-    <h1>Bienvenido a mi Blog de Joaquin Frossard</h1>
-    <p>Este es el inicio de mi primer proyecto con Django.</p>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card border-0 bg-light p-4 shadow-sm" style="border-radius: 20px;">
+                <div class="card-body text-center">
+    <h3 class="fw-bold text-primary mb-4">
+        <i class="bi bi-rocket-takeoff me-2"></i>¿Cómo empezar en LabelBox?
+    </h3>
+    
+    <div class="row text-start g-4">
+        <div class="col-12 d-flex align-items-start mb-3">
+            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="min-width: 40px; height: 40px; font-weight: bold;">1</div>
+            <div>
+                <h5 class="fw-bold mb-1">Crea tu Perfil</h5>
+                <p class="text-muted small mb-0">Registrate y elegí tu rol. Si querés publicar contenido técnico, seleccioná el rol de <b>Autor</b>. o si solo queres ser lector, seleccioná el rol de <b>Lector</b> </p>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex align-items-start mb-3">
+            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="min-width: 40px; height: 40px; font-weight: bold;">2</div>
+            <div>
+                <h5 class="fw-bold mb-1">Personalizá tu Espacio</h5>
+                <p class="text-muted small mb-0">Subí una foto de perfil desde el menú <b>"Mi Perfil"</b> para que la comunidad te reconozca.</p>
+            </div>
+        </div>
+
+        <div class="col-12 d-flex align-items-start mb-3">
+            <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="min-width: 40px; height: 40px; font-weight: bold;">3</div>
+            <div>
+                <h5 class="fw-bold mb-1">Buscá y Aprendé</h5>
+                <p class="text-muted small mb-0">Usá la <b>lupa del buscador</b> arriba para encontrar soluciones rápidas o artículos de hardware.</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="my-4 text-muted opacity-25">
+
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="{% url 'blog:Registro' %}" class="btn btn-primary px-4 shadow-sm" style="border-radius: 20px;">Registrarme Ahora</a>
+        <a href="{% url 'blog:About' %}" class="btn btn-outline-secondary px-4" style="border-radius: 20px;">Saber más</a>
+    </div>
+</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 text-secondary">
+        <div class="col-md-4">
+            <i class="bi bi-pc-display fs-2"></i>
+            <p class="mt-2">Soporte Técnico</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-code-slash fs-2"></i>
+            <p class="mt-2">Desarrollo</p>
+        </div>
+        <div class="col-md-4">
+            <i class="bi bi-info-circle fs-2"></i>
+            <p class="mt-2">Guías de Usuario</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

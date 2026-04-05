@@ -1,0 +1,24 @@
+{% extends "blog/padre.html" %}
+{% load static %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+            <img src="{% static 'blog/img/logo.png' %}" class="img-fluid shadow-sm" alt="LabelBox Soluciones" style="border-radius: 15px;">
+        </div>
+        <div class="col-md-8">
+            <h1 class="display-4">Hola, soy Joaco</h1>
+            <p class="lead text-muted">Técnico Reparador de PC & Desarrollador Python en formación.</p>
+            <hr>
+            <p>
+                Soy el fundador de <strong>LabelBox - Soluciones Informáticas</strong>. Mi camino empezó con la reparacion de PC y soporte tecnico, hoy se expande hacia el mundo del desarrollo de software.
+            </p>
+            <p>
+                Este blog es un espacio híbrido donde comparto guías de soporte técnico basadas en mi experiencia diaria y documento mi proceso de aprendizaje en el mundo de <strong>Python y Django</strong>.
+            </p>
+            <a href="{% url 'blog:Inicio' %}" class="btn btn-primary">Ver mis artículos</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+<div class="container mt-5 text-center">
+    <div class="alert alert-danger mx-auto shadow-sm" style="max-width: 500px; border-radius: 15px;">
+        <h3 class="fw-bold">⚠️ ¿Confirmas la eliminación?</h3>
+        <hr>
+        <p class="mb-4">
+            Estás a punto de borrar permanentemente el artículo:<br>
+            <span class="badge bg-dark fs-6 mt-2">{{ object.titulo }}</span>
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            <div class="d-grid gap-2 d-md-block">
+                <button type="submit" class="btn btn-danger px-4 fw-bold">
+                    Sí, Borrar definitivamente
+                </button>
+                
+                <a href="{% url 'blog:Inicio' %}" class="btn btn-secondary px-4">
+                    No, volver atrás
+                </a>
+            </div>
+        </form>
+    </div>
+    
+    <p class="text-muted mt-3 small">
+        Esta acción no se puede deshacer en la base de datos de LabelBox.
+    </p>
+</div>
+{% endblock %}

@@ -1,21 +1,72 @@
 {% extends "blog/padre.html" %}
 
 {% block contenido %}
-    <h2>Resultados para: "{{ query }}"</h2>
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="text-primary fw-bold mb-0">
+            {% if criterio %} Resultados para: "{{ criterio }}" {% else %} Explorar contenido {% endif %}
+        </h2>
+        
+        <a href="{% url 'blog:ArticuloFormulario' %}" class="btn btn-success shadow-sm">
+            <i class="bi bi-plus-lg"></i> Nuevo Artículo
+        </a>
+    </div>
 
-    {% if articulos %}
-        <ul>
+    <div class="row">
         {% for art in articulos %}
-            <li>
-                <strong>{{ art.titulo }}</strong> - Fecha: {{ art.fecha }} <br>
-                <p>{{ art.texto }}</p>
-            </li>
-        {% endfor %}
-        </ul>
-    {% else %}
-        <p>No se encontraron artículos con ese título. ¡Intentá con otra palabra!</p>
-    {% endif %}
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-0 h-100">
+                    
+                    {% if art.imagen %}
+                        <img src="{{ art.imagen.url }}" class="card-img-top" alt="{{ art.titulo }}" style="height: 200px; object-fit: cover;">
+                    {% endif %}
 
-    <hr>
-    <a href="/blog/buscar/">Hacer otra búsqueda</a>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title fw-bold text-dark">{{ art.titulo }}</h5>
+                        
+                        <p class="text-muted small mb-2">
+                            <i class="bi bi-calendar"></i> {{ art.fecha|date:"d/m/Y" }}
+                        </p>
+
+                        <p class="card-text text-secondary" style="font-size: 0.95rem;">
+                            {{ art.texto|truncatewords:40 }} 
+                        </p>
+                        
+                        <div class="mt-auto">
+                            <hr>
+                            <div class="d-flex justify-content-between">
+                                <a href="{% url 'blog:ArticuloEditar' art.id %}" class="btn btn-sm btn-outline-warning">Editar</a>
+                                <a href="{% url 'blog:ArticuloBorrar' art.id %}" class="btn btn-sm btn-outline-danger">Borrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-warning shadow-sm border-0 mb-5">
+                    No encontramos nada para "<strong>{{ criterio }}</strong>".
+                </div>
+                <h4 class="mb-4 text-secondary">Quizás te interese:</h4>
+                <div class="row">
+                    {% for sugerido in todos %}
+                        <div class="col-md-4 mb-3 opacity-75">
+                            <div class="card shadow-sm border-0 h-100">
+                                
+                                {% if sugerido.imagen %}
+                                    <img src="{{ sugerido.imagen.url }}" class="card-img-top" alt="{{ sugerido.titulo }}" style="height: 150px; object-fit: cover;">
+                                {% endif %}
+
+                                <div class="card-body">
+                                    <h5 class="card-title fw-bold">{{ sugerido.titulo }}</h5>
+                                    <p class="small text-muted">{{ sugerido.subtitulo }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -1,9 +1,25 @@
 {% extends "blog/padre.html" %}
 
 {% block contenido %}
-    <h3 class="mb-4">¿Qué artículo buscás?</h3>
-    <form action="/blog/buscar/" method="GET" class="input-group mb-3">
-        <input type="text" name="titulo" class="form-control" placeholder="Ej: Mi viaje..." aria-label="Buscar">
-        <button class="btn btn-primary" type="submit">Buscar ahora</button>
-    </form>
+<div class="container mt-4">
+    <div class="card shadow-sm p-4" style="border-radius: 15px; border-left: 5px solid #0d6efd;">
+        <h3 class="mb-4 fw-bold text-primary">🔍 ¿Qué artículo buscás?</h3>
+        
+        <form action="{% url 'blog:Buscar' %}" method="GET" class="input-group mb-3">
+            <input type="text" 
+                   name="titulo" 
+                   class="form-control form-control-lg" 
+                   placeholder="Ej: Hardware, Python, Reparación..." 
+                   aria-label="Buscar">
+            
+            <button class="btn btn-primary px-4 fw-bold" type="submit">
+                Buscar ahora
+            </button>
+        </form>
+        
+        <p class="text-muted small">
+            Introduce una palabra clave para filtrar los artículos del blog.
+        </p>
+    </div>
+</div>
 {% endblock %}

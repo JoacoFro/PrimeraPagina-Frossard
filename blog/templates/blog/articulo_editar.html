@@ -1,0 +1,29 @@
+{% extends "blog/padre.html" %}
+
+{% block contenido %}
+<div class="container mt-5">
+    <div class="card p-4 shadow mx-auto" style="max-width: 700px; border-radius: 15px; border-left: 5px solid #ffc107;">
+        <h2 class="text-center mb-4 fw-bold">📝 Editar Artículo</h2>
+        <p class="text-center text-muted small">Modifica los campos necesarios y guarda los cambios.</p>
+        <hr>
+        
+        <form action="" method="POST">
+            {% csrf_token %}
+            
+            <div class="form-group-custom">
+                {{ form.as_p }}
+            </div>
+            
+            <div class="mt-4">
+                <button type="submit" class="btn btn-warning w-100 fw-bold shadow-sm">
+                    🚀 Guardar Cambios
+                </button>
+                
+                <a href="{% url 'blog:Inicio' %}" class="btn btn-outline-secondary w-100 mt-3">
+                    Cancelar y volver
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
